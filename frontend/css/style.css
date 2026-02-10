@@ -1,0 +1,102 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #4b79a1, #283e51);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .container {
+    width: 100%;
+    max-width: 380px;
+  }
+  
+  .form-card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  }
+  
+  h2 {
+    margin-top: 0;
+    text-align: center;
+    color: #333;
+  }
+  
+  .input-group {
+    margin: 12px 0;
+  }
+  
+  label {
+    font-size: 14px;
+    color: #444;
+  }
+  
+  input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    border: 1px solid #aaa;
+    border-radius: 6px;
+    font-size: 15px;
+  }
+  
+  button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    background: #4b79a1;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background: #3a6186;
+  }
+  
+  .error {
+    font-size: 12px;
+    color: red;
+  }
+  
+  .switch {
+    margin-top: 12px;
+    text-align: center;
+  }
+  
+  body {
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+}
+
+.card {
+  background: rgba(15, 23, 42, 0.95);
+  border: none;
+}
+
+.restaurant-card {
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.restaurant-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 35px rgba(0,0,0,.4);
+}
+
+.btn {
+  border-radius: 12px;
+}
+
+.restaurant-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.restaurant-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}

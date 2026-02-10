@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>My Reservations</title>
+
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    body { display:block !important; height:auto !important; }
+    .page-wrap { min-height:100vh; padding:40px 0; }
+    .card-clean { border-radius:14px; }
+    .muted { color: rgba(255,255,255,.75); }
+  </style>
+</head>
+<body>
+  <div class="page-wrap">
+    <div class="container">
+
+      <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap" style="gap:10px;">
+        <h2 class="text-white m-0">My Reservations</h2>
+        <div class="d-flex" style="gap:10px;">
+          <a href="home.html" class="btn btn-outline-light">Home</a>
+          <a href="restaurants.html" class="btn btn-outline-light">Browse</a>
+          <button id="logoutBtn" class="btn btn-danger">Logout</button>
+        </div>
+      </div>
+
+      <div id="statusText" class="muted mb-3"></div>
+
+      <div id="reservationsList" class="row"></div>
+
+    </div>
+  </div>
+
+  <script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<script src="js/my-reservations.js"></script>
+
+</body>
+</html>

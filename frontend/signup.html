@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sign Up</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <!-- Custom style -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-5">
+      <form id="signupForm" class="form-card">
+        <h2>Sign Up</h2>
+
+        <div class="input-group">
+          <label>Name</label>
+          <input type="text" id="signupName" class="form-control" required>
+          <span class="error" id="nameErr"></span>
+        </div>
+
+        <div class="input-group">
+          <label>Email</label>
+          <input type="email" id="signupEmail" class="form-control" required>
+          <span class="error" id="signupEmailErr"></span>
+        </div>
+
+        <div class="input-group">
+          <label>Password</label>
+          <input type="password" id="signupPassword" class="form-control" required minlength="6">
+          <span class="error" id="signupPassErr"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">
+          Create Account
+        </button>
+
+        <p class="switch mt-3">
+          Already have an account?
+          <a href="login.html">Login</a>
+        </p>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<script src="js/signup.js"></script>
+</body>
+</html>

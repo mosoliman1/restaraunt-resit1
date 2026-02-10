@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin - Reservations</title>
+
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    body { display:block !important; height:auto !important; }
+    .page-wrap { min-height:100vh; padding:40px 0; }
+    .card-clean { border-radius:14px; }
+  </style>
+</head>
+<body>
+  <div class="page-wrap">
+    <div class="container">
+
+      <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap" style="gap:10px;">
+        <h2 class="text-white m-0">Admin – Reservations</h2>
+        <div class="d-flex" style="gap:10px;">
+          <a href="home.html" class="btn btn-outline-light">Home</a>
+          <button id="logoutBtn" class="btn btn-danger">Logout</button>
+        </div>
+      </div>
+
+      <div id="statusText" class="text-light mb-3"></div>
+
+      <!-- Simple section to add new restaurants -->
+      <div class="card card-clean p-3 mb-3">
+        <h5 class="mb-3">Add Restaurant (Admin)</h5>
+        <form id="addRestaurantForm">
+          <div class="form-group mb-2">
+            <label>Name</label>
+            <input type="text" id="rNameInput" class="form-control" required />
+          </div>
+          <div class="form-group mb-2">
+            <label>Location</label>
+            <input type="text" id="rLocationInput" class="form-control" />
+          </div>
+          <div class="form-group mb-3">
+            <label>Description</label>
+            <input type="text" id="rDescriptionInput" class="form-control" />
+          </div>
+          <button type="submit" class="btn btn-primary">Add Restaurant</button>
+        </form>
+      </div>
+
+      <div class="card card-clean p-3 mb-3">
+        <h5 class="mb-3">All Reservations (Admin)</h5>
+        <p class="mb-2">Here you can see every reservation from all users and accept or decline them.</p>
+        <div id="reservationsList" class="row"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Home</title>
+
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    body { display: block !important; height: auto !important; }
+    .page-wrap { min-height: 100vh; padding: 60px 0; }
+    .hero-card { border-radius: 16px; }
+  </style>
+</head>
+<body>
+  <div class="page-wrap">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-10 col-lg-8">
+
+          <div class="card hero-card p-4 text-center">
+            <h2 id="welcomeText" class="mb-2">Welcome</h2>
+            <p id="statusText" class="text-muted mb-4"></p>
+
+            <div class="d-flex justify-content-center flex-wrap" style="gap:10px;">
+              <a class="btn btn-primary" href="restaurants.html">Browse Restaurants</a>
+              <a class="btn btn-outline-secondary" href="my-reservations.html">My Reservations</a>
+              <a id="adminBtn" class="btn btn-warning d-none" href="admin.html">Admin Panel</a>
+              <button id="logoutBtn" class="btn btn-danger">Logout</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ✅ shared config + api (make sure these files exist in /js) -->
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+
+  <!-- ✅ home page logic -->
+  <script>
+    (function () {
+      var welcomeText = document.getElementById("welcomeText");
+      var statusText = document.getElementById("statusText");
+      var logoutBtn = document.getElementById("logoutBtn");
+      var adminBtn = document.getElementById("adminBtn");
+
+      function setStatus(msg) {
+        if (statusText) statusText.innerText = msg || "";
+      }
+
+      function loadProfile() {
+        setStatus("Checking session...");
+
+        // uses your backend: GET /api/users/profile (cookie session)
+        API.request("/users/profile", { method: "GET" })
+          .then(function (result) {
+            if (!result || !result.success) {
+              window.location.href = "login.html";
+              return;
+            }
+
+            var name = (result.data && result.data.name) ? result.data.name : "User";
+            var role = (result.data && result.data.role) ? result.data.role : "user";
+            if (welcomeText) welcomeText.innerText = "Welcome " + name;
+            // Only show Admin Panel button when this user is admin
+            if (adminBtn && role === "admin") {
+              adminBtn.classList.remove("d-none");
+            }
+            setStatus("");
+          })
+          .catch(function (err) {
+            // api.js auto-redirects on 401/403
+            if (err && err.message === "NOT_AUTHORIZED") return;
+            setStatus("Could not reach backend on port 3000.");
+          });
+      }
+
+      function logout() {
+        API.request("/auth/logout", { method: "POST" })
+          .catch(function () {})
+          .finally(function () {
+            window.location.href = "login.html";
+          });
+      }
+
+      if (logoutBtn) logoutBtn.addEventListener("click", logout);
+
+      loadProfile();
+    })();
+  </script>
+</body>
+</html>

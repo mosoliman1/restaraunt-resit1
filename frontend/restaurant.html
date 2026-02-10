@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Restaurant</title>
+
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    body { display:block !important; height:auto !important; }
+    .page-wrap { min-height: 100vh; padding: 40px 0; }
+    .card-clean { border-radius: 14px; overflow:hidden; }
+    .muted { color: rgba(255,255,255,.75); }
+  </style>
+</head>
+<body>
+  <div class="page-wrap">
+    <div class="container">
+
+      <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap" style="gap:10px;">
+        <div>
+          <h2 id="rName" class="text-white m-0">Restaurant</h2>
+          <div id="rMeta" class="muted"></div>
+          <div id="pageLoader" class="muted mt-1"></div>
+        </div>
+        <div class="d-flex" style="gap:10px;">
+          <a class="btn btn-outline-light" href="restaurants.html">Back</a>
+          <a class="btn btn-outline-light" href="home.html">Home</a>
+          <button id="logoutBtn" class="btn btn-danger">Logout</button>
+        </div>
+      </div>
+
+      <div class="row">
+        <!-- Reservation form -->
+        <div class="col-12 col-lg-6 mb-3">
+          <div class="card card-clean p-3">
+            <h5 class="mb-3">Make a Reservation</h5>
+
+            <form id="reserveForm">
+              <div class="form-group">
+                <label>Date</label>
+                <input id="resDate" type="date" class="form-control" required />
+              </div>
+
+              <div class="form-group">
+                <label>Time</label>
+                <input id="resTime" type="time" class="form-control" required />
+              </div>
+
+              <div class="form-group">
+                <label>Guests</label>
+                <input id="guests" type="number" min="1" max="20" class="form-control" value="2" required />
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block">Reserve</button>
+              <p id="statusText" class="text-muted mt-3 mb-0"></p>
+            </form>
+          </div>
+        </div>
+
+        <!-- Info / next steps -->
+        <div class="col-12 col-lg-6 mb-3">
+          <div class="card card-clean p-3">
+            <h5 class="mb-2">What happens next?</h5>
+            <ul class="mb-3">
+              <li>You submit the reservation to the backend securely (cookies + CORS).</li>
+              <li>If you’re not logged in, you’ll be redirected to login.</li>
+              <li>Next page we’ll build: <b>My Reservations</b> to view/cancel.</li>
+            </ul>
+
+            <a class="btn btn-outline-primary" href="my-reservations.html">Go to My Reservations (next)</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+<script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<script src="js/restaurant.js"></script>
+
+</body>
+</html>
